@@ -11,32 +11,26 @@ import Image from 'next/image';
 export default function Projects() {
   const { language, t } = useLanguage();
   const [currentProject, setCurrentProject] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [imageError, setImageError] = useState<{[key: number]: boolean}>({});
 
-  // Auto-play cada 5 segundos
+  // Auto-play cada 5 segundos - SIEMPRE activo
   useEffect(() => {
-    if (!isAutoPlaying) return;
-    
     const interval = setInterval(() => {
       setCurrentProject((prev) => (prev + 1) % projects.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying]);
+  }, [currentProject]);
 
   const nextProject = () => {
-    setIsAutoPlaying(false);
     setCurrentProject((prev) => (prev + 1) % projects.length);
   };
 
   const prevProject = () => {
-    setIsAutoPlaying(false);
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
   const goToProject = (index: number) => {
-    setIsAutoPlaying(false);
     setCurrentProject(index);
   };
 
@@ -68,7 +62,7 @@ export default function Projects() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.4 }}
-              className="grid lg:grid-cols-2 gap-8 items-start"
+              className="grid lg:grid-cols-2 gap-8 items-center"
             >
               {/* Project Image */}
               <div className="relative group">
@@ -80,11 +74,11 @@ export default function Projects() {
                       src={project.image}
                       alt={language === 'es' ? project.title.es : project.title.en}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                       onError={() => setImageError(prev => ({...prev, [currentProject]: true}))}
                     />
                   ) : (
-                    /* Placeholder cuando no hay imagen - puedes cambiar este diseño */
+                    /* Placeholder cuando no hay imagen */
                     <div className="flex flex-col items-center justify-center text-[rgb(var(--color-text-secondary))]">
                       <svg className="w-24 h-24 mb-3 opacity-30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
                         <rect x="2" y="3" width="20" height="14" rx="2" />
@@ -92,37 +86,10 @@ export default function Projects() {
                         <path d="M7 8l3 3-3 3M13 14h4" strokeLinecap="round" />
                       </svg>
                       <span className="text-xs font-mono opacity-40">
-                        {/* Puedes cambiar este texto */}
                         Sin preview
                       </span>
                     </div>
                   )}
-                  
-                  {/* Overlay on hover con botones */}
-                  <div className="absolute inset-0 bg-slate-900/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4 rounded-xl">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-2 bg-[rgb(var(--color-primary))] text-slate-900 rounded-lg flex items-center gap-2 font-mono text-sm font-bold hover:opacity-90 transition-opacity"
-                      >
-                        <HiExternalLink className="w-4 h-4" />
-                        {t.recentWorks.liveDemo}
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="px-4 py-2 bg-slate-700 text-white rounded-lg flex items-center gap-2 font-mono text-sm hover:bg-slate-600 transition-colors"
-                      >
-                        <FaGithub className="w-4 h-4" />
-                        GitHub
-                      </a>
-                    )}
-                  </div>
                 </div>
               </div>
 
@@ -137,33 +104,79 @@ export default function Projects() {
                   </p>
                 </div>
 
-                {/* Project Info Card */}
+                {/* Project Info Card - Con botones integrados */}
                 <div className="p-5 rounded-lg bg-[rgb(var(--color-background))]/50 border border-[rgb(var(--color-border))] space-y-4">
                   <h4 className="font-bold text-[rgb(var(--color-primary))] font-mono text-sm">
                     {t.recentWorks.projectInfo}
                   </h4>
                   
-                  <div className="grid grid-cols-2 gap-4 text-sm font-mono">
-                    <div>
-                      <p className="text-[rgb(var(--color-text-secondary))] text-xs mb-1">{t.recentWorks.client}</p>
-                      <p className="text-[rgb(var(--color-text))]">{project.client}</p>
+                  <div className="space-y-3 text-sm font-mono">
+                    <div className="flex justify-between items-center">
+                      <span className="text-[rgb(var(--color-text-secondary))]">{t.recentWorks.client}</span>
+                      <span className="text-[rgb(var(--color-text))] text-right">{project.client}</span>
                     </div>
-                    <div>
-                      <p className="text-[rgb(var(--color-text-secondary))] text-xs mb-1">{t.recentWorks.completionTime}</p>
-                      <p className="text-[rgb(var(--color-text))]">{project.completionTime}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-[rgb(var(--color-text-secondary))]">{t.recentWorks.completionTime}</span>
+                      <span className="text-[rgb(var(--color-text))] text-right">{project.completionTime}</span>
+                    </div>
+                    <div className="flex justify-between items-start">
+                      <span className="text-[rgb(var(--color-text-secondary))]">{t.recentWorks.technologies}</span>
+                      <span className="text-[rgb(var(--color-text))] text-right max-w-[60%]">
+                        {project.technologies.join(', ')}
+                      </span>
                     </div>
                   </div>
 
-                  <div>
-                    <p className="text-[rgb(var(--color-text-secondary))] text-xs font-mono mb-2">
-                      {t.recentWorks.technologies}
-                    </p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <span key={tech} className="tech-badge text-xs">
-                          {tech}
-                        </span>
-                      ))}
+                  {/* Separador */}
+                  <div className="border-t border-[rgb(var(--color-border))] pt-4">
+                    {/* Action Buttons + Navigation - Dentro del card */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        {project.liveUrl && project.liveUrl !== "#" && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/btn flex items-center gap-2 text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-primary))] transition-colors font-mono text-sm"
+                          >
+                            <HiExternalLink className="w-4 h-4" />
+                            <span className="border-b border-transparent group-hover/btn:border-[rgb(var(--color-primary))]">
+                              {t.recentWorks.liveDemo}
+                            </span>
+                          </a>
+                        )}
+                        {project.githubUrl && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/btn flex items-center gap-2 text-[rgb(var(--color-text-secondary))] hover:text-[rgb(var(--color-text))] transition-colors font-mono text-sm"
+                          >
+                            <FaGithub className="w-4 h-4" />
+                            <span className="border-b border-transparent group-hover/btn:border-[rgb(var(--color-text))]">
+                              {t.recentWorks.viewOnGithub}
+                            </span>
+                          </a>
+                        )}
+                      </div>
+                      
+                      {/* Navigation arrows */}
+                      <div className="flex items-center gap-2">
+                        <button
+                          onClick={prevProject}
+                          className="p-2 rounded-full border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-primary))] hover:bg-[rgb(var(--color-primary))]/10 transition-all"
+                          aria-label="Previous project"
+                        >
+                          <HiChevronLeft className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={nextProject}
+                          className="p-2 rounded-full border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-primary))] hover:bg-[rgb(var(--color-primary))]/10 transition-all"
+                          aria-label="Next project"
+                        >
+                          <HiChevronRight className="w-4 h-4" />
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -171,17 +184,9 @@ export default function Projects() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-10">
-            <button
-              onClick={prevProject}
-              className="p-3 rounded-lg bg-[rgb(var(--color-surface))] border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-primary))] hover:bg-[rgb(var(--color-primary))]/10 transition-all"
-            >
-              <HiChevronLeft className="w-5 h-5" />
-            </button>
-
-            {/* Indicators */}
-            <div className="flex gap-2 items-center">
+          {/* Indicators + Progress bar */}
+          <div className="flex flex-col items-center gap-3 mt-8">
+            <div className="flex gap-2">
               {projects.map((_, index) => (
                 <button
                   key={index}
@@ -195,28 +200,17 @@ export default function Projects() {
               ))}
             </div>
 
-            <button
-              onClick={nextProject}
-              className="p-3 rounded-lg bg-[rgb(var(--color-surface))] border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-primary))] hover:bg-[rgb(var(--color-primary))]/10 transition-all"
-            >
-              <HiChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Auto-play indicator */}
-          {isAutoPlaying && (
-            <div className="flex justify-center mt-4">
-              <div className="h-0.5 w-16 bg-[rgb(var(--color-border))] rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-[rgb(var(--color-primary))]"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 5, ease: "linear" }}
-                  key={currentProject}
-                />
-              </div>
+            {/* Auto-play progress bar */}
+            <div className="h-0.5 w-16 bg-[rgb(var(--color-border))] rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-[rgb(var(--color-primary))]"
+                initial={{ width: "0%" }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 5, ease: "linear" }}
+                key={currentProject}
+              />
             </div>
-          )}
+          </div>
         </div>
       </motion.div>
     </section>

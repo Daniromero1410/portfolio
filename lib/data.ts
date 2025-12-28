@@ -164,17 +164,7 @@ export const projects = [
       es: "Consolidador T25 - Sistema ETL Healthcare",
       en: "T25 Consolidator - Healthcare ETL System"
     },
-    // ═══════════════════════════════════════════════════════════════════
-    // 🖼️ IMAGEN DEL PROYECTO
-    // ═══════════════════════════════════════════════════════════════════
-    // 1. Crea la carpeta: public/images/projects/
-    // 2. Guarda tu imagen ahí (ej: consolidador-t25.png)
-    // 3. Descomenta la línea de abajo y pon la ruta correcta:
-    // 
-    // image: "/images/projects/consolidador-t25.png",
-    //
-    // Tamaño recomendado: 800x600 px (ratio 4:3)
-    // ═══════════════════════════════════════════════════════════════════
+    image: "/images/projects/consolidador-t25.png",
     description: {
       es: "Sistema de procesamiento de datos para consolidación de tarifas médicas de prestadores de salud en Colombia.",
       en: "Data processing system for consolidation of medical rates from healthcare providers in Colombia."
@@ -194,15 +184,15 @@ export const projects = [
     technologies: ["Python", "Pandas", "OpenPyXL", "SQL Server", "SFTP"],
     client: "POSITIVA Compañía de Seguros",
     completionTime: "En desarrollo",
-    liveUrl: "#",
-    githubUrl: "https://github.com/Daniromero1410"
+    liveUrl: "",
+    githubUrl: "https://github.com/Daniromero1410/Consolidador-T25-Positiva"
   },
   {
     title: {
       es: "SIASIC-Santander - Sistema de Análisis Sísmico",
       en: "SIASIC-Santander - Seismic Analysis System"
     },
-    // image: "/images/projects/siasic-santander.png",  // ← Agrega tu imagen aquí
+    image: "/images/projects/siasic-santander.png",
     description: {
       es: "Sistema inteligente para análisis de datos sísmicos de la región de Santander, Colombia, enfocado en el Nido Sísmico de Bucaramanga.",
       en: "Intelligent system for seismic data analysis of Santander region, Colombia, focused on the Bucaramanga Seismic Nest."
@@ -221,16 +211,16 @@ export const projects = [
     },
     technologies: ["Python", "Machine Learning", "Data Analysis", "Pandas"],
     client: "Proyecto Académico",
-    completionTime: "6 meses",
-    liveUrl: "#",
-    githubUrl: "https://github.com/Daniromero1410"
+    completionTime: "En desarrollo",
+    liveUrl: "",
+    githubUrl: "https://github.com/Daniromero1410/SIASIC-Santander-Sistema-sismico-integral"
   },
   {
     title: {
       es: "F1 Race Predictor - Deep Learning",
       en: "F1 Race Predictor - Deep Learning"
     },
-    // image: "/images/projects/f1-predictor.png",  // ← Agrega tu imagen aquí
+    image: "/images/projects/f1-predictor.png",
     description: {
       es: "Sistema de predicción de resultados de carreras de Fórmula 1 usando redes neuronales profundas.",
       en: "Formula 1 race results prediction system using deep neural networks."
@@ -249,9 +239,9 @@ export const projects = [
     },
     technologies: ["Python", "TensorFlow", "Scikit-learn", "Pandas"],
     client: "Proyecto Personal",
-    completionTime: "4 meses",
-    liveUrl: "#",
-    githubUrl: "https://github.com/Daniromero1410"
+    completionTime: "1 Mes",
+    liveUrl: "",
+    githubUrl: "https://github.com/Daniromero1410/f1-predictor"
   }
 ];
 

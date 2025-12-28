@@ -1,8 +1,10 @@
 "use client";
 
 import { useLanguage } from '@/lib/LanguageContext';
+import { useTheme } from 'next-themes';
 import { skills } from '@/lib/data';
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import {
   SiPython,
   SiJavascript,
@@ -16,41 +18,84 @@ import {
   SiDocker,
   SiTensorflow,
   SiPandas,
+  SiNumpy,
+  SiLinux,
+  SiGithub,
+  SiAstro,
+  SiScikitlearn,
+  SiTableau,
 } from 'react-icons/si';
+import { TbBrandCpp } from 'react-icons/tb';
+import { FaDatabase } from 'react-icons/fa';
 
-const iconMap: { [key: string]: any } = {
-  Python: SiPython,
-  JavaScript: SiJavascript,
-  Django: SiDjango,
-  Flask: SiFlask,
-  'Node.js': SiNodedotjs,
-  MySQL: SiMysql,
-  PostgreSQL: SiPostgresql,
-  MongoDB: SiMongodb,
-  Git: SiGit,
-  Docker: SiDocker,
-  TensorFlow: SiTensorflow,
-  Pandas: SiPandas,
-};
+// Fila 1 - Lenguajes y Frameworks principales
+const row1Icons = [
+  { icon: SiPython, name: "Python", darkColor: "#3776AB", lightColor: "#3776AB" },
+  { icon: SiJavascript, name: "JavaScript", darkColor: "#F7DF1E", lightColor: "#F0DB4F" },
+  { icon: TbBrandCpp, name: "C/C++", darkColor: "#00599C", lightColor: "#00599C" },
+  { icon: SiDjango, name: "Django", darkColor: "#44B78B", lightColor: "#092E20" },
+  { icon: SiFlask, name: "Flask", darkColor: "#ffffff", lightColor: "#000000" },
+  { icon: SiNodedotjs, name: "Node.js", darkColor: "#339933", lightColor: "#339933" },
+  { icon: SiAstro, name: "Astro", darkColor: "#FF5D01", lightColor: "#FF5D01" },
+  { icon: SiTensorflow, name: "TensorFlow", darkColor: "#FF6F00", lightColor: "#FF6F00" },
+  { icon: SiScikitlearn, name: "Scikit-learn", darkColor: "#F7931E", lightColor: "#F7931E" },
+];
 
-const mainSkills = ['Python', 'JavaScript', 'Django', 'TensorFlow', 'PostgreSQL', 'Docker', 'Git', 'Pandas'];
+// Fila 2 - Data, Databases y Tools
+const row2Icons = [
+  { icon: SiPandas, name: "Pandas", darkColor: "#E70488", lightColor: "#150458" },
+  { icon: SiNumpy, name: "NumPy", darkColor: "#4DABCF", lightColor: "#013243" },
+  { icon: SiPostgresql, name: "PostgreSQL", darkColor: "#4169E1", lightColor: "#336791" },
+  { icon: SiMysql, name: "MySQL", darkColor: "#4479A1", lightColor: "#4479A1" },
+  { icon: SiMongodb, name: "MongoDB", darkColor: "#47A248", lightColor: "#47A248" },
+  { icon: FaDatabase, name: "SQL Server", darkColor: "#CC2927", lightColor: "#CC2927" },
+  { icon: SiDocker, name: "Docker", darkColor: "#2496ED", lightColor: "#2496ED" },
+  { icon: SiGit, name: "Git", darkColor: "#F05032", lightColor: "#F05032" },
+  { icon: SiGithub, name: "GitHub", darkColor: "#ffffff", lightColor: "#181717" },
+  { icon: SiLinux, name: "Linux", darkColor: "#FCC624", lightColor: "#000000" },
+  { icon: SiTableau, name: "Tableau", darkColor: "#E97627", lightColor: "#E97627" },
+];
 
 export default function Skills() {
   const { language, t } = useLanguage();
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.05
-      }
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted ? (resolvedTheme === 'dark') : true;
+
+  const skillCategories = [
+    {
+      title: language === 'es' ? 'Lenguajes' : 'Languages',
+      items: skills.languages.join(', ')
+    },
+    {
+      title: 'Frameworks',
+      items: skills.frameworks.join(', ')
+    },
+    {
+      title: 'Data & ETL',
+      items: skills.dataETL.join(', ')
+    },
+    {
+      title: language === 'es' ? 'Bases de Datos' : 'Databases',
+      items: skills.databases.join(', ')
+    },
+    {
+      title: language === 'es' ? 'Herramientas' : 'Tools',
+      items: skills.tools.join(', ')
+    },
+    {
+      title: language === 'es' ? 'Metodologías' : 'Methodologies',
+      items: skills.methodologies.join(', ')
     }
-  };
+  ];
 
-  const item = {
-    hidden: { opacity: 0, scale: 0.8 },
-    show: { opacity: 1, scale: 1 }
+  const getIconColor = (tech: typeof row1Icons[0]) => {
+    return isDark ? tech.darkColor : tech.lightColor;
   };
 
   return (
@@ -60,135 +105,113 @@ export default function Skills() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="card p-8"
       >
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <span className="section-label justify-center">{t.skills.projects}</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-mono">
             {t.skills.title}
           </h2>
         </div>
 
-        {/* Main Skills Icons */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
-        >
-          {mainSkills.map((skill) => {
-            const Icon = iconMap[skill] || SiPython;
-            return (
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          
+          {/* Left side - Animated Icons */}
+          <div className="space-y-4 overflow-hidden py-4">
+            {/* Row 1 - Moving left */}
+            <div className="relative">
+              <div className="flex marquee-left">
+                {[...row1Icons, ...row1Icons].map((tech, index) => (
+                  <div key={`row1-${index}`} className="flex-shrink-0 mx-2 group">
+                    <div className="w-16 h-16 bg-[rgb(var(--color-background))]/50 border border-[rgb(var(--color-border))] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-[rgb(var(--color-primary))]">
+                      <tech.icon 
+                        className="w-8 h-8"
+                        style={{ color: getIconColor(tech) }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Row 2 - Moving right */}
+            <div className="relative">
+              <div className="flex marquee-right">
+                {[...row2Icons, ...row2Icons].map((tech, index) => (
+                  <div key={`row2-${index}`} className="flex-shrink-0 mx-2 group">
+                    <div className="w-16 h-16 bg-[rgb(var(--color-background))]/50 border border-[rgb(var(--color-border))] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-[rgb(var(--color-primary))]">
+                      <tech.icon 
+                        className="w-8 h-8"
+                        style={{ color: getIconColor(tech) }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right side - Skills List */}
+          <div className="space-y-4 lg:pl-6">
+            {skillCategories.map((category, index) => (
               <motion.div
-                key={skill}
-                variants={item}
-                className="group relative"
+                key={index}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.08 }}
+                className="flex items-start gap-2"
               >
-                <div className="tech-icon-box w-16 h-16 sm:w-20 sm:h-20">
-                  <Icon className="w-8 h-8 sm:w-10 sm:h-10 text-[rgb(var(--color-text-secondary))] group-hover:text-[rgb(var(--color-primary))] transition-colors" />
-                </div>
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-mono whitespace-nowrap">
-                  {skill}
+                <span className="text-[rgb(var(--color-primary))] mt-0.5">•</span>
+                <div>
+                  <span className="text-[rgb(var(--color-primary))] font-bold font-mono text-sm">
+                    {category.title}:
+                  </span>
+                  <span className="text-[rgb(var(--color-text-secondary))] font-mono text-sm ml-2">
+                    {category.items}
+                  </span>
                 </div>
               </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Detailed Skills Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="card-simple p-8 space-y-6"
-        >
-          {/* Languages */}
-          <div>
-            <h3 className="font-bold text-[rgb(var(--color-primary))] font-mono mb-3">
-              {language === 'es' ? 'Lenguajes:' : 'Languages:'}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.languages.map((tech) => (
-                <span key={tech} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
+            ))}
           </div>
-
-          {/* Frameworks */}
-          <div>
-            <h3 className="font-bold text-[rgb(var(--color-primary))] font-mono mb-3">
-              Frameworks:
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.frameworks.map((tech) => (
-                <span key={tech} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Data & ETL */}
-          <div>
-            <h3 className="font-bold text-[rgb(var(--color-primary))] font-mono mb-3">
-              Data & ETL:
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.dataETL.map((tech) => (
-                <span key={tech} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Databases */}
-          <div>
-            <h3 className="font-bold text-[rgb(var(--color-primary))] font-mono mb-3">
-              {t.skills.databases}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.databases.map((tech) => (
-                <span key={tech} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Tools */}
-          <div>
-            <h3 className="font-bold text-[rgb(var(--color-primary))] font-mono mb-3">
-              {t.skills.tools}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.tools.map((tech) => (
-                <span key={tech} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Methodologies */}
-          <div>
-            <h3 className="font-bold text-[rgb(var(--color-primary))] font-mono mb-3">
-              {language === 'es' ? 'Metodologías:' : 'Methodologies:'}
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {skills.methodologies.map((tech) => (
-                <span key={tech} className="tech-badge">
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        </div>
       </motion.div>
+
+      {/* CSS for marquee animations */}
+      <style jsx>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        
+        .marquee-left {
+          animation: scroll-left 20s linear infinite;
+        }
+        
+        .marquee-right {
+          animation: scroll-right 20s linear infinite;
+        }
+        
+        .marquee-left:hover,
+        .marquee-right:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }

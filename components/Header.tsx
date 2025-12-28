@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/lib/LanguageContext';
 import ThemeToggle from './ThemeToggle';
+import Logo from './Logo';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { socialLinks } from '@/lib/data';
 
@@ -24,30 +25,22 @@ export default function Header() {
     { label: t.nav.resume, href: '#resume' },
     { label: 'Services', href: '#services' },
     { label: t.nav.portfolio, href: '#portfolio' },
-    { label: t.nav.blog, href: '#blog' },
     { label: t.nav.contact, href: '#contact' },
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="section-container !py-4">
-        {/* Card container para el navbar */}
         <div className={`rounded-xl border border-[rgb(var(--color-border))] transition-all duration-300 ${
           isScrolled
             ? 'bg-[rgb(var(--color-surface))]/95 backdrop-blur-lg shadow-lg'
             : 'bg-[rgb(var(--color-surface))]/80 backdrop-blur-sm'
         }`}>
           <div className="flex items-center justify-between h-14 px-4 sm:px-6">
-            {/* Left - Logo */}
-            <a href="#" className="flex items-center gap-2 group">
-              <span className="text-xl font-bold text-[rgb(var(--color-primary))]">&lt;/&gt;</span>
-              <span className="font-bold font-mono text-sm">
-                <span className="gradient-text-lime">Daniel</span>
-                <span className="text-[rgb(var(--color-text-secondary))]">.dev</span>
-              </span>
+            <a href="#" className="flex items-center">
+              <Logo width={120} height={40} />
             </a>
 
-            {/* Center - Navigation (Desktop) */}
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item, index) => (
                 <a
@@ -64,9 +57,7 @@ export default function Header() {
               ))}
             </div>
 
-            {/* Right - Social Icons + Language + Theme Toggle */}
             <div className="flex items-center gap-2">
-              {/* Social Links */}
               <div className="hidden sm:flex items-center">
                 <a
                   href={socialLinks.linkedin}
@@ -88,10 +79,8 @@ export default function Header() {
                 </a>
               </div>
 
-              {/* Theme Toggle */}
               <ThemeToggle />
 
-              {/* Language Selector */}
               <button
                 onClick={() => setLanguage(language === 'es' ? 'en' : 'es')}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[rgb(var(--color-background))] border border-[rgb(var(--color-border))] hover:border-[rgb(var(--color-primary))] transition-all font-mono text-sm"

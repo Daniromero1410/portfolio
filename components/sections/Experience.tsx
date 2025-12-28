@@ -1,102 +1,178 @@
 "use client";
 
+import { useState } from 'react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { experience, personalInfo } from '@/lib/data';
-import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { HiLightningBolt, HiSun, HiGlobe, HiOfficeBuilding } from 'react-icons/hi';
+
+// Iconos personalizados para cada empresa
+const companyIcons: { [key: string]: React.ReactNode } = {
+  "GESTAR INNOVACIÓN": (
+    <svg viewBox="0 0 24 24" className="w-6 h-6" fill="currentColor">
+      <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+    </svg>
+  ),
+  "S.O.L": <HiSun className="w-6 h-6" />,
+  "GEATIC": <HiGlobe className="w-6 h-6" />,
+};
+
+// Colores de fondo para cada empresa
+const companyColors: { [key: string]: string } = {
+  "GESTAR INNOVACIÓN": "from-emerald-500 to-teal-600",
+  "S.O.L": "from-amber-500 to-orange-600",
+  "GEATIC": "from-blue-500 to-indigo-600",
+};
 
 export default function Experience() {
   const { language, t } = useLanguage();
+  const [selectedCompany, setSelectedCompany] = useState(0);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
+  // Verificación de seguridad
+  if (!experience || experience.length === 0) {
+    return null;
+  }
+
+  const selectedExp = experience[selectedCompany];
+
+  // Verificación adicional
+  if (!selectedExp) {
+    return null;
+  }
+
+  const getCompanyIcon = (companyName: string) => {
+    return companyIcons[companyName] || <HiOfficeBuilding className="w-6 h-6" />;
   };
 
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+  const getCompanyColor = (companyName: string) => {
+    return companyColors[companyName] || "from-gray-500 to-gray-600";
   };
 
   return (
-    <section id="resume" className="section-container bg-[rgb(var(--color-surface))]/30">
+    <section id="resume" className="section-container">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+        className="card p-8"
       >
         {/* Section Header */}
-        <div className="mb-12 text-center">
-          <p className="text-green-500 dark:text-lime-400 text-sm mb-2">• {t.experience.title}</p>
-          <h2 className="text-3xl sm:text-4xl font-bold">
-            <span className="text-[rgb(var(--color-primary))]">+{personalInfo.yearsExperience}</span>
-            {t.experience.subtitle} <span className="gradient-text">{t.experience.passion}</span> {t.experience.for}
+        <div className="mb-10">
+          <span className="section-label">{t.experience.title}</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-mono">
+            <span className="gradient-text-lime">+{personalInfo.yearsExperience}</span>
+            <span className="text-[rgb(var(--color-text-secondary))]">
+              {language === 'es' ? ' años de ' : ' years of '}
+            </span>
+            <span className="gradient-text-lime">{t.experience.passion}</span>
+            <span className="text-[rgb(var(--color-text-secondary))]">
+              {language === 'es' ? ' por' : ' for'}
+            </span>
             <br />
-            {t.experience.programming}
+            <span className="text-[rgb(var(--color-text-secondary))]">
+              {t.experience.programming}
+            </span>
           </h2>
         </div>
 
-        {/* Experience Timeline */}
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true }}
-          className="space-y-8"
-        >
-          {experience.map((exp, index) => (
+        <div className="grid lg:grid-cols-[320px_1fr] gap-6">
+          {/* Left side - Company List */}
+          <div className="space-y-3">
+            {experience.map((exp, index) => {
+              const isSelected = selectedCompany === index;
+              
+              return (
+                <motion.button
+                  key={index}
+                  onClick={() => setSelectedCompany(index)}
+                  className={`w-full p-4 rounded-lg flex items-center gap-4 text-left transition-all duration-300 border ${
+                    isSelected 
+                      ? 'border-[rgb(var(--color-primary))] bg-[rgb(var(--color-primary))]/10' 
+                      : 'border-[rgb(var(--color-border))] bg-[rgb(var(--color-background))]/50 hover:border-[rgb(var(--color-primary))]/50'
+                  }`}
+                  whileHover={{ x: 5 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  {/* Company Icon */}
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-gradient-to-br ${getCompanyColor(exp.company)} text-white shadow-lg`}>
+                    {getCompanyIcon(exp.company)}
+                  </div>
+                  
+                  {/* Company Info */}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="font-bold font-mono text-[rgb(var(--color-text))] text-sm">
+                      {exp.company}
+                    </h3>
+                    <p className="text-xs text-[rgb(var(--color-text-secondary))] font-mono">
+                      {exp.period}
+                    </p>
+                  </div>
+
+                  {/* Selection indicator */}
+                  {isSelected && (
+                    <div className="w-2 h-2 rounded-full bg-[rgb(var(--color-primary))]"></div>
+                  )}
+                </motion.button>
+              );
+            })}
+          </div>
+
+          {/* Right side - Experience Details */}
+          <AnimatePresence mode="wait">
             <motion.div
-              key={index}
-              variants={item}
-              className="grid md:grid-cols-[300px_1fr] gap-6 items-start"
+              key={selectedCompany}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.3 }}
+              className="p-6 rounded-lg bg-[rgb(var(--color-background))]/50 border border-[rgb(var(--color-border))] space-y-6"
             >
-              {/* Left side - Company card */}
-              <div className="card flex items-center gap-4">
-                {/* Company Logo placeholder */}
-                <div className="w-16 h-16 bg-gradient-to-br from-[rgb(var(--color-primary))]/20 to-[rgb(var(--color-primary))]/5 rounded-lg flex items-center justify-center flex-shrink-0 border border-[rgb(var(--color-border))]">
-                  <span className="text-2xl font-bold text-[rgb(var(--color-primary))]">
-                    {exp.company.charAt(0)}
-                  </span>
-                </div>
-                <div className="min-w-0">
-                  <h3 className="font-bold text-lg text-[rgb(var(--color-text))]">{exp.company}</h3>
-                  <p className="text-sm text-[rgb(var(--color-text-secondary))]">{exp.period}</p>
-                </div>
+              {/* Position Title */}
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold gradient-text-lime font-mono">
+                  {language === 'es' ? selectedExp.position?.es : selectedExp.position?.en}
+                </h3>
+                <p className="text-sm text-[rgb(var(--color-text-secondary))] font-mono mt-1">
+                  {selectedExp.location}
+                </p>
               </div>
 
-              {/* Right side - Details */}
-              <div className="space-y-4">
-                <h4 className="text-xl font-bold gradient-text">
-                  {language === 'es' ? exp.position.es : exp.position.en}
-                </h4>
+              {/* Description */}
+              <ul className="space-y-3">
+                {(language === 'es' ? selectedExp.description?.es : selectedExp.description?.en)?.map((desc, idx) => (
+                  <motion.li
+                    key={idx}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex gap-3 text-[rgb(var(--color-text-secondary))] font-mono text-sm"
+                  >
+                    <span className="text-[rgb(var(--color-primary))] mt-1">•</span>
+                    <span>{desc}</span>
+                  </motion.li>
+                ))}
+              </ul>
 
-                <ul className="space-y-2">
-                  {(language === 'es' ? exp.description.es : exp.description.en).map((desc, idx) => (
-                    <li key={idx} className="flex gap-3 text-[rgb(var(--color-text-secondary))]">
-                      <span className="text-[rgb(var(--color-primary))] mt-1.5 flex-shrink-0">•</span>
-                      <span>{desc}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Technologies */}
+              {/* Technologies */}
+              <div className="pt-4 border-t border-[rgb(var(--color-border))]">
                 <div className="flex flex-wrap gap-2">
-                  {exp.technologies.map((tech) => (
-                    <span key={tech} className="tech-badge">
+                  {selectedExp.technologies?.map((tech, idx) => (
+                    <motion.span
+                      key={tech}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 + idx * 0.05 }}
+                      className="tech-badge"
+                    >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
             </motion.div>
-          ))}
-        </motion.div>
+          </AnimatePresence>
+        </div>
       </motion.div>
     </section>
   );

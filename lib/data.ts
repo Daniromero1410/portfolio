@@ -5,249 +5,145 @@ export const personalInfo = {
     en: "Software Engineer"
   },
   subtitle: {
-    es: "Senior Full Stack Web & App developer",
-    en: "Senior Full Stack Web & App developer"
+    es: "Ingeniero de Software Big Data & ML",
+    en: "Software Engineer Big Data & ML"
   },
-  phone: "+57 310 297 6752",
-  email: "danalromero.software@gmail.com",
+  phone: "+57 310 297 9752",
+  email: "danielromero.software@gmail.com",
   location: "Bucaramanga, Colombia",
-  linkedin: "linkedin.com/in/danielromeromoreno",
-  github: "github.com/daniromero1410",
-  yearsExperience: 12,
-  projectsCompleted: 250,
-  satisfiedClients: 680,
-  awardsWinner: 18
+  linkedin: "linkedin.com/in/daniromerosoftware",
+  github: "github.com/Daniromero1410",
+  yearsExperience: 2,
+  projectsCompleted: 10,
+  satisfiedClients: 5,
+  technologies: 15
 };
 
 export const about = {
-  es: "Con experiencia en desarrollo de soluciones de Big Data, ETL, pipelines y Machine Learning. Experimentado en diseño de bases de datos y automatización de procesos. Experto en desarrollo Full Stack. Capacitado en liderar proyectos tecnológicos y entregar soluciones de alta calidad en entornos ágiles.",
-  en: "Experienced in developing Big Data, ETL, pipelines and Machine Learning solutions. Experienced in database design and process automation. Expert in Full Stack development. Capable of leading technology projects and delivering high-quality solutions in agile environments."
+  es: "Ingeniero de Software con experiencia en desarrollo de soluciones de Big Data, ETL pipelines y Machine Learning. Especializado en Python, procesamiento de datos y automatización de procesos. Experiencia en diseño de bases de datos SQL optimizadas, desarrollo web con Django y Flask, y proyectos de IoT con microcontroladores. Capacidad demostrada para liderar proyectos tecnológicos y entregar soluciones de alta calidad en entornos ágiles.",
+  en: "Software Engineer with experience in developing Big Data solutions, ETL pipelines and Machine Learning. Specialized in Python, data processing and process automation. Experience in optimized SQL database design, web development with Django and Flask, and IoT projects with microcontrollers. Proven ability to lead technology projects and deliver high-quality solutions in agile environments."
 };
 
 export const experience = [
   {
-    company: "Google",
-    position: {
-      es: "Ingeniero de Software Senior",
-      en: "Senior Software Engineer"
-    },
-    period: "2018 - Presente",
-    location: "Remoto / Heredia, Costa Rica",
-    description: {
-      es: [
-        "Lideré el desarrollo de aplicaciones web escalables, mejorando el rendimiento y la experiencia de usuario para millones de usuarios.",
-        "Implementé algoritmos de machine learning para mejorar la funcionalidad de búsqueda.",
-        "Colaboré con equipos multifuncionales para integrar nuevas características sin problemas."
-      ],
-      en: [
-        "Led development of scalable web applications, improving performance and user experience for millions of users.",
-        "Implemented machine learning algorithms to enhance search functionality.",
-        "Collaborated with cross-functional teams to integrate new features seamlessly."
-      ]
-    },
-    technologies: ["Python", "TensorFlow", "Angular", "Kubernetes", "GCP"]
-  },
-  {
-    company: "Twitter (X)",
+    company: "GESTAR INNOVACIÓN",
     position: {
       es: "Ingeniero de Software",
       en: "Software Engineer"
     },
-    period: "2012 - 2015",
-    location: "San Francisco, CA",
+    period: "Ago 2025 - Presente",
+    location: "Remoto, Colombia",
     description: {
       es: [
-        "Desarrollé y mantuve servicios backend críticos para el procesamiento de tweets en tiempo real.",
-        "Optimicé el rendimiento de la base de datos, reduciendo el tiempo de consulta en un 40%.",
-        "Participé en la migración de sistemas legacy a arquitecturas de microservicios."
+        "Desarrollo del sistema Consolidador T25 para procesamiento ETL de datos de tarifas médicas del sector salud colombiano",
+        "Implementación de conexiones SFTP con GoAnywhere para extracción automatizada de archivos Excel de proveedores de salud",
+        "Diseño de validación semántica para mejorar la precisión del procesamiento de datos de tarifas de servicios médicos",
+        "Optimización de pipelines de datos para consolidación de información de la red de prestadores de POSITIVA Compañía de Seguros"
       ],
       en: [
-        "Developed and maintained critical backend services for real-time tweet processing.",
-        "Optimized database performance, reducing query time by 40%.",
-        "Participated in migration of legacy systems to microservices architectures."
+        "Development of the T25 Consolidator system for ETL processing of medical rate data in the Colombian healthcare sector",
+        "Implementation of SFTP connections with GoAnywhere for automated extraction of Excel files from healthcare providers",
+        "Semantic validation design to improve accuracy in processing medical service rate data",
+        "Data pipeline optimization for consolidating information from POSITIVA Insurance Company's provider network"
       ]
     },
-    technologies: ["Scala", "Kafka", "Redis", "MySQL", "Docker"]
+    technologies: ["Python", "Pandas", "OpenPyXL", "SQL Server", "SFTP", "GoAnywhere"]
   },
   {
-    company: "Amazon",
+    company: "S.O.L",
     position: {
-      es: "Ingeniero de Software",
-      en: "Software Engineer"
+      es: "CTD Junior y Desarrollador de Soluciones",
+      en: "Junior CTD & Solutions Developer"
     },
-    period: "2018 - Presente",
-    location: "Seattle, WA",
+    period: "Sep 2023 - Presente",
+    location: "Bucaramanga, Colombia",
     description: {
       es: [
-        "Diseñé e implementé sistemas de recomendación para mejorar las ventas de productos.",
-        "Desarrollé APIs RESTful para integración con sistemas de terceros.",
-        "Contribuí a la mejora continua del proceso de CI/CD del equipo."
+        "Liderazgo e implementación de la estrategia tecnológica de la empresa",
+        "Desarrollo web y automatización de procesos para optimizar operaciones digitales",
+        "Gestión de datos y generación de reportes para toma de decisiones empresariales",
+        "Soporte al crecimiento digital y operativo de la organización"
       ],
       en: [
-        "Designed and implemented recommendation systems to improve product sales.",
-        "Developed RESTful APIs for integration with third-party systems.",
-        "Contributed to continuous improvement of team's CI/CD process."
+        "Leadership and implementation of the company's technology strategy",
+        "Web development and process automation to optimize digital operations",
+        "Data management and report generation for business decision-making",
+        "Support for the organization's digital and operational growth"
       ]
     },
-    technologies: ["Java", "Spring Boot", "DynamoDB", "AWS Lambda", "ElasticSearch"]
+    technologies: ["Python", "Django", "JavaScript", "SQL", "Tableau", "Git"]
   },
   {
-    company: "PayPal",
+    company: "GEATIC",
     position: {
-      es: "Desarrollador Junior",
-      en: "Junior Developer"
+      es: "Practicante de Desarrollo",
+      en: "Development Intern"
     },
-    period: "2010 - 2012",
-    location: "San José, CA",
+    period: "Jun 2024 - Nov 2024",
+    location: "Colombia",
     description: {
       es: [
-        "Desarrollé funcionalidades para el sistema de procesamiento de pagos.",
-        "Implementé pruebas unitarias y de integración para garantizar la calidad del código.",
-        "Participé en code reviews y contribuí a la mejora de las prácticas de desarrollo del equipo."
+        "Implementación de Python con ArcPy para geoprocesamiento de infraestructura de oleoductos",
+        "Gestión avanzada de bases de datos geoespaciales",
+        "Supervisión de proyectos utilizando herramientas Esri como Experience Builder"
       ],
       en: [
-        "Developed features for the payment processing system.",
-        "Implemented unit and integration tests to ensure code quality.",
-        "Participated in code reviews and contributed to improving team development practices."
+        "Implementation of Python with ArcPy for geoprocessing of pipeline infrastructure",
+        "Advanced management of geospatial databases",
+        "Project supervision using Esri tools such as Experience Builder"
       ]
     },
-    technologies: ["JavaScript", "Node.js", "PostgreSQL", "Redis"]
+    technologies: ["Python", "ArcPy", "ArcGIS", "PostgreSQL", "Experience Builder"]
   }
 ];
 
 export const education = [
   {
-    institution: "MIT",
+    institution: "Universidad de Santander (UDES)",
     degree: {
-      es: "Licenciatura en Ciencias de la Computación",
-      en: "Bachelor's Degree in Computer Science"
+      es: "Ingeniería de Software",
+      en: "Software Engineering"
     },
-    period: "2020-2024",
-    location: "Cambridge, MA"
+    period: "2021 - 2025",
+    location: "Bucaramanga, Colombia",
+    graduation: {
+      es: "Graduación: Enero 2026",
+      en: "Graduation: January 2026"
+    }
   },
   {
-    institution: "Harvard University",
+    institution: "Technical University of Riga",
     degree: {
-      es: "Certificación en React y Redux, Node.js - Curso de Desarrollador",
-      en: "Certification in React and Redux, Node.js - Developer Course"
+      es: "Intercambio Académico en Computer Science",
+      en: "Academic Exchange in Computer Science"
     },
-    period: "2018-2019",
-    location: "Cambridge, MA"
-  },
-  {
-    institution: "Stanford University",
-    degree: {
-      es: "Certificación en Desarrollo Web Full Stack",
-      en: "Certification in Full Stack Web Development"
-    },
-    period: "2015-2016",
-    location: "Stanford, CA"
-  },
-  {
-    institution: "University of Washington",
-    degree: {
-      es: "Certificación en React y Redux, Node.js - Curso de Desarrollador",
-      en: "Certification in React and Redux, Node.js - Developer Course"
-    },
-    period: "2013-2015",
-    location: "Seattle, WA"
+    period: "Ene 2025 - Jul 2025",
+    location: "Riga, Letonia"
   }
 ];
 
 export const research = [
   {
     title: {
-      es: "Análisis Avanzado de Datos con Herramientas de Big Data",
-      en: "Advanced Data Analytics with Big Data Tools"
+      es: "SIASIC-Santander - Sistema de Análisis Sísmico",
+      en: "SIASIC-Santander - Seismic Analysis System"
     },
     description: {
-      es: "Utilicé herramientas de big data para análisis avanzados y obtener insights.",
-      en: "Utilized big data tools for advanced analytics and insights."
+      es: "Sistema inteligente para análisis de datos sísmicos de la región de Santander, enfocado en el fenómeno del Nido Sísmico de Bucaramanga.",
+      en: "Intelligent system for seismic data analysis of the Santander region, focused on the Bucaramanga Seismic Nest phenomenon."
     },
-    period: "2023-2024"
+    period: "2024"
   },
   {
     title: {
-      es: "Arquitecturas de Aplicaciones Cloud-Native",
-      en: "Cloud-Native Application Architectures"
+      es: "Predicción de Resistencia del Concreto con PET Reciclado",
+      en: "Concrete Strength Prediction with Recycled PET"
     },
     description: {
-      es: "Estudié las mejores prácticas para diseñar aplicaciones cloud-native.",
-      en: "Studied best practices for designing cloud-native applications."
+      es: "Modelo de machine learning para predecir la resistencia del concreto incorporando materiales PET reciclados.",
+      en: "Machine learning model to predict concrete strength incorporating recycled PET materials."
     },
-    period: "2021-2013"
-  },
-  {
-    title: {
-      es: "Personalización de Experiencia de Usuario con IA",
-      en: "AI-Driven User Experience Personalization"
-    },
-    description: {
-      es: "Aproveché la IA para personalizar experiencias de usuario basadas en el comportamiento.",
-      en: "Leveraged AI to personalize user experiences based on behavior."
-    },
-    period: "2019-2020"
-  }
-];
-
-export const projects = [
-  {
-    title: {
-      es: "Consolidador T2A - Sistema ETL Healthcare",
-      en: "T2A Consolidator - Healthcare ETL System"
-    },
-    description: {
-      es: "Sistema de procesamiento de datos para consolidación de tarifas médicas del sector salud colombiano",
-      en: "Data processing system for consolidation of medical rates in Colombian healthcare sector"
-    },
-    details: {
-      es: [
-        "Implementación de conductos SFTP para extracción automatizada de archivos Excel de proveedores médicos",
-        "Diseño de validación semántica para mejorar la precisión del procesamiento de datos de tarifas de servicios médicos",
-        "Optimización de ingesta de datos mediante análisis de tarifas solicitadas en la región de Santander, Colombia",
-        "Sistema inteligente para análisis de datos solicitados de la región de Santander, Colombia"
-      ],
-      en: [
-        "Implementation of SFTP pipelines for automated extraction of Excel files from medical providers",
-        "Semantic validation design to improve precision in processing medical service rate data",
-        "Data ingestion optimization through analysis of requested rates in Santander region, Colombia",
-        "Intelligent system for analyzing requested data from Santander region, Colombia"
-      ]
-    },
-    technologies: ["Python", "Machine Learning", "Data Analysis"],
-    image: "/images/project-t2a.jpg",
-    client: "Conceptual JSC",
-    completionTime: "6 meses",
-    liveUrl: "#",
-    githubUrl: "#"
-  },
-  {
-    title: {
-      es: "SASBD - Sistema de Análisis de Big Data",
-      en: "SASBD - Big Data Analysis System"
-    },
-    description: {
-      es: "Plataforma de aprendizaje online con gestión de cursos, cuestionarios y seguimiento de progreso",
-      en: "Online learning platform with course management, quizzes, and progress tracking"
-    },
-    details: {
-      es: [
-        "Desarrollé una plataforma de aprendizaje online con gestión de cursos, cuestionarios y seguimiento de progreso.",
-        "Implementé sistema de autenticación y autorización de usuarios.",
-        "Integré pasarelas de pago para suscripciones de cursos."
-      ],
-      en: [
-        "Developed an online learning platform with course management, quizzes, and progress tracking.",
-        "Implemented user authentication and authorization system.",
-        "Integrated payment gateways for course subscriptions."
-      ]
-    },
-    technologies: ["Node.js", "React", "MongoDB", "Stripe"],
-    image: "/images/project-sasbd.jpg",
-    client: "EduTech Corp",
-    completionTime: "8 meses",
-    liveUrl: "#",
-    githubUrl: "#"
+    period: "2024"
   },
   {
     title: {
@@ -255,36 +151,117 @@ export const projects = [
       en: "F1 Race Predictor - Deep Learning"
     },
     description: {
-      es: "Modelo de IA para predecir resultados de carreras de Fórmula 1 usando redes neuronales",
-      en: "AI model to predict Formula 1 race results using neural networks"
+      es: "Sistema de predicción de resultados de carreras de Fórmula 1 usando redes neuronales profundas.",
+      en: "Formula 1 race results prediction system using deep neural networks."
+    },
+    period: "2024"
+  }
+];
+
+export const projects = [
+  {
+    title: {
+      es: "Consolidador T25 - Sistema ETL Healthcare",
+      en: "T25 Consolidator - Healthcare ETL System"
+    },
+    // ═══════════════════════════════════════════════════════════════════
+    // 🖼️ IMAGEN DEL PROYECTO
+    // ═══════════════════════════════════════════════════════════════════
+    // 1. Crea la carpeta: public/images/projects/
+    // 2. Guarda tu imagen ahí (ej: consolidador-t25.png)
+    // 3. Descomenta la línea de abajo y pon la ruta correcta:
+    // 
+    // image: "/images/projects/consolidador-t25.png",
+    //
+    // Tamaño recomendado: 800x600 px (ratio 4:3)
+    // ═══════════════════════════════════════════════════════════════════
+    description: {
+      es: "Sistema de procesamiento de datos para consolidación de tarifas médicas de prestadores de salud en Colombia.",
+      en: "Data processing system for consolidation of medical rates from healthcare providers in Colombia."
     },
     details: {
       es: [
-        "Lideré el desarrollo de un modelo de deep learning para predecir resultados de carreras de Fórmula 1.",
-        "Recopilé y procesé datos históricos de carreras para entrenamiento del modelo.",
-        "Implementé interfaz web para visualización de predicciones."
+        "Implementación de pipelines SFTP para extracción automatizada de archivos Excel",
+        "Diseño de validación semántica para mejorar precisión del procesamiento",
+        "Optimización de ingesta de datos para la red de prestadores de POSITIVA"
       ],
       en: [
-        "Led development of a deep learning model to predict Formula 1 race results.",
-        "Collected and processed historical race data for model training.",
-        "Implemented web interface for prediction visualization."
+        "Implementation of SFTP pipelines for automated Excel file extraction",
+        "Semantic validation design to improve processing accuracy",
+        "Data ingestion optimization for POSITIVA's provider network"
       ]
     },
-    technologies: ["Python", "TensorFlow", "Scikit-learn"],
-    image: "/images/project-f1.jpg",
-    client: "Personal Project",
+    technologies: ["Python", "Pandas", "OpenPyXL", "SQL Server", "SFTP"],
+    client: "POSITIVA Compañía de Seguros",
+    completionTime: "En desarrollo",
+    liveUrl: "#",
+    githubUrl: "https://github.com/Daniromero1410"
+  },
+  {
+    title: {
+      es: "SIASIC-Santander - Sistema de Análisis Sísmico",
+      en: "SIASIC-Santander - Seismic Analysis System"
+    },
+    // image: "/images/projects/siasic-santander.png",  // ← Agrega tu imagen aquí
+    description: {
+      es: "Sistema inteligente para análisis de datos sísmicos de la región de Santander, Colombia, enfocado en el Nido Sísmico de Bucaramanga.",
+      en: "Intelligent system for seismic data analysis of Santander region, Colombia, focused on the Bucaramanga Seismic Nest."
+    },
+    details: {
+      es: [
+        "Análisis de datos sísmicos históricos de la región",
+        "Implementación de modelos de Machine Learning para detección de patrones",
+        "Visualización interactiva de datos geoespaciales"
+      ],
+      en: [
+        "Historical seismic data analysis of the region",
+        "Implementation of Machine Learning models for pattern detection",
+        "Interactive visualization of geospatial data"
+      ]
+    },
+    technologies: ["Python", "Machine Learning", "Data Analysis", "Pandas"],
+    client: "Proyecto Académico",
+    completionTime: "6 meses",
+    liveUrl: "#",
+    githubUrl: "https://github.com/Daniromero1410"
+  },
+  {
+    title: {
+      es: "F1 Race Predictor - Deep Learning",
+      en: "F1 Race Predictor - Deep Learning"
+    },
+    // image: "/images/projects/f1-predictor.png",  // ← Agrega tu imagen aquí
+    description: {
+      es: "Sistema de predicción de resultados de carreras de Fórmula 1 usando redes neuronales profundas.",
+      en: "Formula 1 race results prediction system using deep neural networks."
+    },
+    details: {
+      es: [
+        "Recopilación y procesamiento de datos históricos de carreras F1",
+        "Entrenamiento de modelos de deep learning para predicción",
+        "Interfaz web para visualización de predicciones"
+      ],
+      en: [
+        "Collection and processing of historical F1 race data",
+        "Training deep learning models for prediction",
+        "Web interface for prediction visualization"
+      ]
+    },
+    technologies: ["Python", "TensorFlow", "Scikit-learn", "Pandas"],
+    client: "Proyecto Personal",
     completionTime: "4 meses",
     liveUrl: "#",
-    githubUrl: "#"
+    githubUrl: "https://github.com/Daniromero1410"
   }
 ];
 
 export const skills = {
-  languages: ["Python", "SQL", "JavaScript", "C++", "HTML/CSS"],
-  frameworks: ["Django", "Flask", "Node.js", "Express", "Python", "Django"],
-  databases: ["MySQL", "PostgreSQL", "MongoDB"],
-  tools: ["Git", "Docker", "AWS", "Heroku"],
-  others: ["RESTful APIs", "GraphQL", "Agile Methodologies"]
+  languages: ["Python", "SQL", "JavaScript", "C/C++", "HTML/CSS"],
+  frameworks: ["Django", "Flask", "Node.js", "Astro", "TensorFlow", "Scikit-learn"],
+  dataETL: ["Pandas", "NumPy", "OpenPyXL", "ETL Pipelines", "Tableau", "DBMS"],
+  databases: ["SQL Server", "PostgreSQL", "MongoDB", "MySQL"],
+  tools: ["Git", "GitHub", "Docker", "ArcGIS", "ArcPy", "SFTP/GoAnywhere", "Kali Linux"],
+  methodologies: ["Scrum", "Kanban", "Agile"]
 };
 
 export const languages = [
@@ -311,8 +288,17 @@ export const languages = [
 ];
 
 export const socialLinks = {
-  github: "https://github.com/daniromero1410",
-  linkedin: "https://linkedin.com/in/danielromeromoreno",
+  github: "https://github.com/Daniromero1410",
+  linkedin: "https://linkedin.com/in/daniromerosoftware",
   twitter: "https://twitter.com/daniromero1410",
-  email: "mailto:danalromero.software@gmail.com"
+  email: "mailto:danielromero.software@gmail.com"
 };
+
+// Git Journal entries - proyectos recientes de Daniel
+export const gitJournal = [
+  { date: "Dic 2024:", project: "Consolidador-T25-Healthcare-ETL" },
+  { date: "Nov 2024:", project: "SIASIC-Santander-Seismic-Analysis" },
+  { date: "Oct 2024:", project: "F1-Race-Predictor-DeepLearning" },
+  { date: "Sep 2024:", project: "ArcGIS-Pipeline-Geoprocessing" },
+  { date: "Ago 2024:", project: "Concrete-Strength-ML-Predictor" },
+]

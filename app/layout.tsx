@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const jetbrainsMono = JetBrains_Mono({ 
+  subsets: ["latin"],
+  variable: '--font-mono',
+});
+
+const inter = Inter({ 
+  subsets: ["latin"],
+  variable: '--font-sans',
+});
 
 export const metadata: Metadata = {
   title: "Daniel Romero - Full Stack Developer",
@@ -23,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="es" suppressHydrationWarning className="dark">
+      <body className={`${jetbrainsMono.variable} ${inter.variable}`}>
         <Providers>
           {children}
         </Providers>

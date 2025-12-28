@@ -25,17 +25,18 @@ export default function Education() {
 
   return (
     <section className="section-container">
-      <div className="grid lg:grid-cols-2 gap-12">
+      <div className="grid lg:grid-cols-2 gap-8">
         {/* Education */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="card-simple p-8"
         >
           <div className="flex items-center gap-3 mb-8">
             <HiAcademicCap className="w-8 h-8 text-[rgb(var(--color-primary))]" />
-            <h2 className="text-3xl font-bold">{t.education.title}</h2>
+            <h2 className="text-2xl font-bold font-mono">{t.education.title}</h2>
           </div>
 
           <motion.div
@@ -46,21 +47,22 @@ export default function Education() {
             className="space-y-6"
           >
             {education.map((edu, index) => (
-              <motion.div key={index} variants={item} className="card group">
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-[rgb(var(--color-primary))] rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
-                  <div className="flex-1 space-y-2">
-                    <p className="text-sm text-[rgb(var(--color-text-secondary))]">{edu.period}</p>
-                    <h3 className="font-bold text-lg gradient-text">{edu.institution}</h3>
-                    <p className="text-[rgb(var(--color-text-secondary))]">
-                      {language === 'es' ? edu.degree.es : edu.degree.en}
-                    </p>
-                    {edu.location && (
-                      <p className="text-sm text-[rgb(var(--color-text-secondary))] italic">
-                        📍 {edu.location}
-                      </p>
-                    )}
-                  </div>
+              <motion.div 
+                key={index} 
+                variants={item} 
+                className="flex items-start gap-4 group"
+              >
+                <div className="timeline-dot group-hover:scale-150 transition-transform"></div>
+                <div className="flex-1 space-y-1">
+                  <p className="text-sm text-[rgb(var(--color-text-secondary))] font-mono">
+                    {edu.period}:
+                  </p>
+                  <h3 className="font-bold text-[rgb(var(--color-primary))] font-mono group-hover:text-[rgb(var(--color-cyan))] transition-colors">
+                    {edu.institution}
+                  </h3>
+                  <p className="text-sm text-[rgb(var(--color-text-secondary))] font-mono">
+                    {language === 'es' ? edu.degree.es : edu.degree.en}
+                  </p>
                 </div>
               </motion.div>
             ))}
@@ -69,14 +71,15 @@ export default function Education() {
 
         {/* Research */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
+          initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="card-simple p-8"
         >
           <div className="flex items-center gap-3 mb-8">
             <HiLightBulb className="w-8 h-8 text-[rgb(var(--color-primary))]" />
-            <h2 className="text-3xl font-bold">{t.research.title}</h2>
+            <h2 className="text-2xl font-bold font-mono">{t.research.title}</h2>
           </div>
 
           <motion.div
@@ -86,19 +89,23 @@ export default function Education() {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            {research.map((item, index) => (
-              <motion.div key={index} variants={item} className="card group">
-                <div className="flex items-start gap-4">
-                  <div className="w-2 h-2 bg-[rgb(var(--color-primary))] rounded-full mt-2 group-hover:scale-150 transition-transform"></div>
-                  <div className="flex-1 space-y-2">
-                    <p className="text-sm text-[rgb(var(--color-text-secondary))]">{item.period}</p>
-                    <h3 className="font-bold text-lg gradient-text">
-                      {language === 'es' ? item.title.es : item.title.en}
-                    </h3>
-                    <p className="text-[rgb(var(--color-text-secondary))]">
-                      {language === 'es' ? item.description.es : item.description.en}
-                    </p>
-                  </div>
+            {research.map((res, index) => (
+              <motion.div 
+                key={index} 
+                variants={item} 
+                className="flex items-start gap-4 group"
+              >
+                <div className="timeline-dot group-hover:scale-150 transition-transform"></div>
+                <div className="flex-1 space-y-1">
+                  <p className="text-sm text-[rgb(var(--color-text-secondary))] font-mono">
+                    {res.period}:
+                  </p>
+                  <h3 className="font-bold text-[rgb(var(--color-primary))] font-mono group-hover:text-[rgb(var(--color-cyan))] transition-colors">
+                    {language === 'es' ? res.title.es : res.title.en}
+                  </h3>
+                  <p className="text-sm text-[rgb(var(--color-text-secondary))] font-mono">
+                    {language === 'es' ? res.description.es : res.description.en}
+                  </p>
                 </div>
               </motion.div>
             ))}

@@ -14,12 +14,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Daniel Romero - Full Stack Developer",
+  title: "Daniel Romero - Ingeniero de Software",
   description: "Portfolio de Daniel Alejandro Romero Moreno - Ingeniero de Software con experiencia en desarrollo Full Stack, Big Data, ETL y Machine Learning.",
-  keywords: ["Full Stack Developer", "Software Engineer", "Big Data", "Machine Learning", "React", "Node.js", "Python"],
+  keywords: ["Software Engineer", "Big Data", "Machine Learning", "React", "Node.js", "Python"],
   authors: [{ name: "Daniel Alejandro Romero Moreno" }],
   openGraph: {
-    title: "Daniel Romero - Full Stack Developer",
+    title: "Daniel Romero - Ingeniero de Software",
     description: "Portfolio de Daniel Alejandro Romero Moreno - Ingeniero de Software",
     type: "website",
   },

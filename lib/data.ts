@@ -132,7 +132,7 @@ export const research = [
       es: "Sistema inteligente para análisis de datos sísmicos de la región de Santander, enfocado en el fenómeno del Nido Sísmico de Bucaramanga.",
       en: "Intelligent system for seismic data analysis of the Santander region, focused on the Bucaramanga Seismic Nest phenomenon."
     },
-    period: "2024"
+    period: "2025-2026"
   },
   {
     title: {
@@ -143,7 +143,7 @@ export const research = [
       es: "Modelo de machine learning para predecir la resistencia del concreto incorporando materiales PET reciclados.",
       en: "Machine learning model to predict concrete strength incorporating recycled PET materials."
     },
-    period: "2024"
+    period: "2025"
   },
   {
     title: {
@@ -154,7 +154,7 @@ export const research = [
       es: "Sistema de predicción de resultados de carreras de Fórmula 1 usando redes neuronales profundas.",
       en: "Formula 1 race results prediction system using deep neural networks."
     },
-    period: "2024"
+    period: "2025"
   }
 ];
 
@@ -183,7 +183,7 @@ export const projects = [
     },
     technologies: ["Python", "Pandas", "OpenPyXL", "SQL Server", "SFTP"],
     client: "POSITIVA Compañía de Seguros",
-    completionTime: "En desarrollo",
+    completionTime: "Completado",
     liveUrl: "",
     githubUrl: "https://github.com/Daniromero1410/Consolidador-T25-Positiva"
   },
@@ -209,11 +209,11 @@ export const projects = [
         "Interactive visualization of geospatial data"
       ]
     },
-    technologies: ["Python", "Machine Learning", "Data Analysis", "Pandas"],
+    technologies: ["Python", "Machine Learning", "Next Js", "Pandas"],
     client: "Proyecto Académico",
-    completionTime: "En desarrollo",
+    completionTime: "Completado",
     liveUrl: "",
-    githubUrl: "https://github.com/Daniromero1410/SIASIC-Santander-Sistema-sismico-integral"
+    githubUrl: "https://github.com/Daniromero1410/siasic-santander-"
   },
   {
     title: {
@@ -247,7 +247,7 @@ export const projects = [
 
 export const skills = {
   languages: ["Python", "SQL", "JavaScript", "C/C++", "HTML/CSS"],
-  frameworks: ["Django", "Flask", "Node.js", "Astro", "TensorFlow", "Scikit-learn"],
+  frameworks: ["Django", "Flask", "Node.js", "Astro", "TensorFlow", "Scikit-learn","Next JS", "React", "FastAPI"],
   dataETL: ["Pandas", "NumPy", "OpenPyXL", "ETL Pipelines", "Tableau", "DBMS"],
   databases: ["SQL Server", "PostgreSQL", "MongoDB", "MySQL"],
   tools: ["Git", "GitHub", "Docker", "ArcGIS", "ArcPy", "SFTP/GoAnywhere", "Kali Linux"],
@@ -280,7 +280,6 @@ export const languages = [
 export const socialLinks = {
   github: "https://github.com/Daniromero1410",
   linkedin: "https://linkedin.com/in/daniromerosoftware",
-  twitter: "https://twitter.com/daniromero1410",
   email: "mailto:danielromero.software@gmail.com"
 };
 

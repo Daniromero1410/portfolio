@@ -68,7 +68,7 @@ export default function Projects() {
               <div className="relative group">
                 <div className="rounded-xl border border-[rgb(var(--color-border))] bg-[rgb(var(--color-background))] aspect-[4/3] flex items-center justify-center overflow-hidden relative">
                   
-                  {/* Si el proyecto tiene imagen configurada, mostrarla */}
+                  
                   {project.image && !imageError[currentProject] ? (
                     <Image
                       src={project.image}

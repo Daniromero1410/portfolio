@@ -105,13 +105,6 @@ Este proyecto puede ser desplegado en:
 - **AWS Amplify**: Soporte completo para Next.js
 - **Railway**: Deploy con contenedores
 
-### Desplegar en Vercel
-
-```bash
-npm install -g vercel
-vercel
-```
-
 ## 📝 Licencia
 
 Este proyecto es de código abierto y está disponible bajo la Licencia MIT.
@@ -120,7 +113,7 @@ Este proyecto es de código abierto y está disponible bajo la Licencia MIT.
 
 **Daniel Alejandro Romero Moreno**
 
-- Email: danalromero.software@gmail.com
+- Email: danielromero.software@gmail.com
 - LinkedIn: [danielromeromoreno](https://linkedin.com/in/danielromeromoreno)
 - GitHub: [@daniromero1410](https://github.com/daniromero1410)
 

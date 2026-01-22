@@ -211,7 +211,7 @@ export const projects = [
     },
     technologies: ["Python", "Machine Learning", "Next Js", "Pandas"],
     client: "Proyecto Académico",
-    completionTime: "Completado",
+    completionTime: "En Desarrollo",
     liveUrl: "",
     githubUrl: "https://github.com/Daniromero1410/siasic-santander-"
   },
@@ -239,7 +239,7 @@ export const projects = [
     },
     technologies: ["Python", "TensorFlow", "Scikit-learn", "Pandas"],
     client: "Proyecto Personal",
-    completionTime: "1 Mes",
+    completionTime: "2 Semanas",
     liveUrl: "",
     githubUrl: "https://github.com/Daniromero1410/f1-predictor"
   }

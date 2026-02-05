@@ -161,6 +161,34 @@ export const research = [
 export const projects = [
   {
     title: {
+      es: "Mentis - Plataforma de Gestión",
+      en: "Mentis - Management Platform"
+    },
+    image: "/images/projects/mentis.png",
+    description: {
+      es: "Plataforma web integral para gestión y administración eficiente.",
+      en: "Comprehensive web platform for efficient management and administration."
+    },
+    details: {
+      es: [
+        "Desarrollo de interfaz de usuario moderna y responsiva",
+        "Implementación de lógica de negocio robusta",
+        "Integración con servicios en la nube"
+      ],
+      en: [
+        "Modern and responsive user interface development",
+        "Robust business logic implementation",
+        "Cloud services integration"
+      ]
+    },
+    technologies: ["FastAPI", "Next.js", "PostgreSQL"],
+    client: "Soluciones Ocupacionales y Laborales",
+    completionTime: "En Desarrollo",
+    liveUrl: "https://mentis-nu.vercel.app/",
+    githubUrl: "https://github.com/Daniromero1410/Mentis"
+  },
+  {
+    title: {
       es: "Consolidador T25 - Sistema ETL Healthcare",
       en: "T25 Consolidator - Healthcare ETL System"
     },
@@ -247,9 +275,9 @@ export const projects = [
 
 export const skills = {
   languages: ["Python", "SQL", "JavaScript", "C/C++", "HTML/CSS"],
-  frameworks: ["Django", "Flask", "Node.js", "Astro", "TensorFlow", "Scikit-learn","Next JS", "React", "FastAPI"],
+  frameworks: ["Django", "Flask", "FastAPI", "Node.js", "Astro", "TensorFlow", "Scikit-learn", "Next.js", "React"],
   dataETL: ["Pandas", "NumPy", "OpenPyXL", "ETL Pipelines", "Tableau", "DBMS"],
-  databases: ["SQL Server", "PostgreSQL", "MongoDB", "MySQL"],
+  databases: ["SQL Server", "PostgreSQL", "MongoDB", "MySQL", "Supabase"],
   tools: ["Git", "GitHub", "Docker", "ArcGIS", "ArcPy", "SFTP/GoAnywhere", "Kali Linux"],
   methodologies: ["Scrum", "Kanban", "Agile"]
 };
@@ -285,6 +313,7 @@ export const socialLinks = {
 
 // Git Journal entries - proyectos recientes de Daniel
 export const gitJournal = [
+  { date: "Feb 2026:", project: "Mentis-Management-Platform" },
   { date: "Dic 2024:", project: "Consolidador-T25-Healthcare-ETL" },
   { date: "Nov 2024:", project: "SIASIC-Santander-Seismic-Analysis" },
   { date: "Oct 2024:", project: "F1-Race-Predictor-DeepLearning" },

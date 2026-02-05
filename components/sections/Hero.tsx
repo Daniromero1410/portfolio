@@ -23,41 +23,44 @@ import {
   SiLinux,
   SiGithub,
   SiAstro,
+  SiNextdotjs,
+  SiFastapi,
+  SiSupabase,
 } from 'react-icons/si';
 
 // Componente personalizado para Power BI
 const PowerBIIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
   <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor">
-    <path d="M10 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-9zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-5zm10-8a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V8z"/>
+    <path d="M10 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-9zm-5 4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-5zm10-8a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V8z" />
   </svg>
 );
 
 // Componente personalizado para Tableau
 const TableauIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
   <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor">
-    <path d="M11.654 5.227h.692v3.337h3.266v.678h-3.266v3.337h-.692V9.242H8.388v-.678h3.266V5.227zM5.227 11.654h.678v2.493h2.493v.692H5.905v2.493h-.678v-2.493H2.734v-.692h2.493v-2.493zm8.306 0h.678v2.493h2.493v.692h-2.493v2.493h-.678v-2.493h-2.493v-.692h2.493v-2.493zM11.654.734h.692v2.493h2.493v.692h-2.493v2.493h-.692V3.919H9.161v-.692h2.493V.734zm0 15.586h.692v2.493h2.493v.692h-2.493v2.493h-.692v-2.493H9.161v-.692h2.493v-2.493z"/>
+    <path d="M11.654 5.227h.692v3.337h3.266v.678h-3.266v3.337h-.692V9.242H8.388v-.678h3.266V5.227zM5.227 11.654h.678v2.493h2.493v.692H5.905v2.493h-.678v-2.493H2.734v-.692h2.493v-2.493zm8.306 0h.678v2.493h2.493v.692h-2.493v2.493h-.678v-2.493h-2.493v-.692h2.493v-2.493zM11.654.734h.692v2.493h2.493v.692h-2.493v2.493h-.692V3.919H9.161v-.692h2.493V.734zm0 15.586h.692v2.493h2.493v.692h-2.493v2.493h-.692v-2.493H9.161v-.692h2.493v-2.493z" />
   </svg>
 );
 
 // Componente para Scikit-learn
 const ScikitLearnIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
   <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor">
-    <circle cx="6" cy="6" r="2.5"/>
-    <circle cx="18" cy="6" r="2.5"/>
-    <circle cx="6" cy="18" r="2.5"/>
-    <circle cx="18" cy="18" r="2.5"/>
-    <circle cx="12" cy="12" r="3"/>
-    <line x1="8" y1="7.5" x2="10" y2="10" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="16" y1="7.5" x2="14" y2="10" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="8" y1="16.5" x2="10" y2="14" stroke="currentColor" strokeWidth="1.5"/>
-    <line x1="16" y1="16.5" x2="14" y2="14" stroke="currentColor" strokeWidth="1.5"/>
+    <circle cx="6" cy="6" r="2.5" />
+    <circle cx="18" cy="6" r="2.5" />
+    <circle cx="6" cy="18" r="2.5" />
+    <circle cx="18" cy="18" r="2.5" />
+    <circle cx="12" cy="12" r="3" />
+    <line x1="8" y1="7.5" x2="10" y2="10" stroke="currentColor" strokeWidth="1.5" />
+    <line x1="16" y1="7.5" x2="14" y2="10" stroke="currentColor" strokeWidth="1.5" />
+    <line x1="8" y1="16.5" x2="10" y2="14" stroke="currentColor" strokeWidth="1.5" />
+    <line x1="16" y1="16.5" x2="14" y2="14" stroke="currentColor" strokeWidth="1.5" />
   </svg>
 );
 
 // Componente personalizado para ArcGIS
 const ArcGISIcon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
   <svg viewBox="0 0 24 24" className={className} style={style} fill="currentColor">
-    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
   </svg>
 );
 
@@ -100,6 +103,8 @@ export default function Hero() {
       { icon: SiPython, name: "Python", color: "#3776AB" },
       { icon: SiDjango, name: "Django", color: "#44B78B" },
       { icon: SiFlask, name: "Flask", color: "#61DAFB" },
+      { icon: SiNextdotjs, name: "Next.js", color: "#000000" },
+      { icon: SiFastapi, name: "FastAPI", color: "#009688" },
       { icon: SiTensorflow, name: "TensorFlow", color: "#FF6F00" },
       { icon: ScikitLearnIcon, name: "Scikit-learn", color: "#F7931E" },
     ],
@@ -107,6 +112,7 @@ export default function Hero() {
       { icon: SiPostgresql, name: "PostgreSQL", color: "#4169E1" },
       { icon: SiMysql, name: "MySQL", color: "#4479A1" },
       { icon: SiMongodb, name: "MongoDB", color: "#47A248" },
+      { icon: SiSupabase, name: "Supabase", color: "#3ECF8E" },
       { icon: PowerBIIcon, name: "Power BI", color: "#F2C811" },
       { icon: TableauIcon, name: "Tableau", color: "#E97627" },
     ],
@@ -164,7 +170,7 @@ export default function Hero() {
               <div className="relative">
                 {/* Glow effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-emerald-500 rounded-t-[200px] blur-3xl opacity-30"></div>
-                
+
                 {/* Profile container */}
                 <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-t-[180px] overflow-hidden bg-gradient-to-br from-cyan-600 via-teal-600 to-emerald-700 border-2 border-[rgb(var(--color-border))]">
                   {/* Imagen de perfil */}
@@ -180,9 +186,9 @@ export default function Hero() {
                   />
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
-                  
+
                   {/* Code badge */}
-                  <motion.div 
+                  <motion.div
                     className="absolute bottom-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-[rgb(var(--color-primary))] rounded-xl flex items-center justify-center shadow-lg z-10"
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -223,7 +229,7 @@ export default function Hero() {
               {/* Description with code style */}
               <div className="font-mono text-sm text-[rgb(var(--color-text-secondary))]">
                 <span className="code-tag-red">&lt;p&gt;</span>
-                {language === 'es' 
+                {language === 'es'
                   ? 'Con experiencia en tecnologías como '
                   : 'With expertise in technologies such as '}
                 <span className="text-[rgb(var(--color-primary))]">Python</span>,{' '}
@@ -295,9 +301,8 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.6 + index * 0.1 }}
-                className={`flex items-center justify-center ${
-                  index < stats.length - 1 ? 'md:border-r border-[rgb(var(--color-border))]' : ''
-                } ${index === 1 ? 'border-l md:border-l-0 border-[rgb(var(--color-border))]' : ''}
+                className={`flex items-center justify-center ${index < stats.length - 1 ? 'md:border-r border-[rgb(var(--color-border))]' : ''
+                  } ${index === 1 ? 'border-l md:border-l-0 border-[rgb(var(--color-border))]' : ''}
                 ${index === 3 ? 'border-l border-[rgb(var(--color-border))]' : ''}
                 ${index >= 2 ? 'border-t md:border-t-0 border-[rgb(var(--color-border))] pt-4 md:pt-0 mt-4 md:mt-0' : ''}`}
               >

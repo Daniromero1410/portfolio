@@ -24,6 +24,9 @@ import {
   SiAstro,
   SiScikitlearn,
   SiTableau,
+  SiNextdotjs,
+  SiFastapi,
+  SiSupabase,
 } from 'react-icons/si';
 import { TbBrandCpp } from 'react-icons/tb';
 import { FaDatabase } from 'react-icons/fa';
@@ -38,6 +41,8 @@ const row1Icons = [
   { icon: SiNodedotjs, name: "Node.js", darkColor: "#339933", lightColor: "#339933" },
   { icon: SiAstro, name: "Astro", darkColor: "#FF5D01", lightColor: "#FF5D01" },
   { icon: SiTensorflow, name: "TensorFlow", darkColor: "#FF6F00", lightColor: "#FF6F00" },
+  { icon: SiNextdotjs, name: "Next.js", darkColor: "#D1D5DB", lightColor: "#000000" },
+  { icon: SiFastapi, name: "FastAPI", darkColor: "#009688", lightColor: "#009688" },
   { icon: SiScikitlearn, name: "Scikit-learn", darkColor: "#F7931E", lightColor: "#F7931E" },
 ];
 
@@ -54,6 +59,7 @@ const row2Icons = [
   { icon: SiGithub, name: "GitHub", darkColor: "#ffffff", lightColor: "#181717" },
   { icon: SiLinux, name: "Linux", darkColor: "#FCC624", lightColor: "#000000" },
   { icon: SiTableau, name: "Tableau", darkColor: "#E97627", lightColor: "#E97627" },
+  { icon: SiSupabase, name: "Supabase", darkColor: "#3ECF8E", lightColor: "#3ECF8E" },
 ];
 
 export default function Skills() {
@@ -117,7 +123,7 @@ export default function Skills() {
 
         {/* Main Content */}
         <div className="grid lg:grid-cols-2 gap-10 items-center">
-          
+
           {/* Left side - Animated Icons */}
           <div className="space-y-4 overflow-hidden py-4">
             {/* Row 1 - Moving left */}
@@ -126,7 +132,7 @@ export default function Skills() {
                 {[...row1Icons, ...row1Icons].map((tech, index) => (
                   <div key={`row1-${index}`} className="flex-shrink-0 mx-2 group">
                     <div className="w-16 h-16 bg-[rgb(var(--color-background))]/50 border border-[rgb(var(--color-border))] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-[rgb(var(--color-primary))]">
-                      <tech.icon 
+                      <tech.icon
                         className="w-8 h-8"
                         style={{ color: getIconColor(tech) }}
                       />
@@ -142,7 +148,7 @@ export default function Skills() {
                 {[...row2Icons, ...row2Icons].map((tech, index) => (
                   <div key={`row2-${index}`} className="flex-shrink-0 mx-2 group">
                     <div className="w-16 h-16 bg-[rgb(var(--color-background))]/50 border border-[rgb(var(--color-border))] rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:border-[rgb(var(--color-primary))]">
-                      <tech.icon 
+                      <tech.icon
                         className="w-8 h-8"
                         style={{ color: getIconColor(tech) }}
                       />
